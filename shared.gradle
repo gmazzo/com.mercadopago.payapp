@@ -1,6 +1,7 @@
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'jacoco'
 
 android {
     compileSdkVersion 27
@@ -11,7 +12,11 @@ android {
 
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
-    
+
+    buildTypes.all { bt ->
+        testCoverageEnabled = bt.debuggable
+    }
+
     testOptions {
         unitTests {
             includeAndroidResources = true
