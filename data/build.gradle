@@ -1,0 +1,8 @@
+apply plugin: 'com.android.library'
+apply from: '../shared.gradle'
+
+android {
+    defaultConfig {
+        buildConfigField 'String', 'ENDPOINT_URL', '"https://api.mercadopago.com/v1/payment_methods"'
+    }
+}
