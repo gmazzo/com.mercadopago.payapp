@@ -2,7 +2,7 @@ package com.mercadopago.apptest
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.mercadopago.apptest.payments.PaymentFragment
+import com.mercadopago.apptest.payments.amount.PaymentAmountFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                    .add(R.id.fragmentContainer, PaymentFragment())
+                    .add(R.id.fragmentContainer, PaymentAmountFragment())
                     .commitNow()
         }
     }

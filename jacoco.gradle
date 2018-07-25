@@ -20,8 +20,7 @@ android.testVariants.all {
     def variant = it.testedVariant
     def name = variant.name.capitalize()
 
-    tasks.create(name: "jacoco${name}TestReport", type: JacocoReport) {
-        dependsOn "test${name}UnitTest", "create${name}CoverageReport"
+    tasks.create(name: "jacoco${name}TestReport", type: JacocoReport) { self ->
         group = 'Reporting'
         description = "Generates Jacoco coverage reports on the ${variant.name} variant"
 
@@ -53,6 +52,14 @@ android.testVariants.all {
                 "jacoco/test${name}UnitTest.exec",
                 'outputs/code-coverage/connected/*coverage.ec'
         ])
+
+        doLast {
+            println "Wrote HTML coverage report to ${reports.html.destination}"
+            println "Wrote XML coverage report to ${reports.xml.destination}"
+        }
+
+        dependsOn "test${name}UnitTest", "create${name}CoverageReport"
+        build.dependsOn self
     }
 
 }

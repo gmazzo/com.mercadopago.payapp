@@ -5,22 +5,19 @@ import com.mercadopago.apptest.mockReponse
 import okhttp3.Interceptor
 import okhttp3.Request
 import org.junit.Assert.assertEquals
-import org.junit.Before
 import org.junit.Test
 import org.mockito.ArgumentCaptor
+import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 
 class PublicKeyInterceptorTest : BaseTest() {
-    private lateinit var interceptor: PublicKeyInterceptor
+
+    @InjectMocks
+    lateinit var interceptor: PublicKeyInterceptor
 
     @Mock
     lateinit var chain: Interceptor.Chain
-
-    @Before
-    fun setup() {
-        interceptor = PublicKeyInterceptor()
-    }
 
     @Test
     fun testIntercept() {

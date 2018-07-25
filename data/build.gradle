@@ -7,3 +7,7 @@ android {
         buildConfigField 'String', 'PUBLIC_KEY', '"444a9ef5-8a6b-429f-abdf-587639155d88"'
     }
 }
+
+dependencies {
+    testImplementation 'com.github.gmazzo:okhttp-mock:1.0.4'
+}

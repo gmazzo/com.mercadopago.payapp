@@ -1,10 +1,14 @@
 <resources>
     <string name="app_name">App Test</string>
 
+    <!-- Payments -->
+
+    <string name="payment_amount">Monto</string>
+    <string name="err_payment_amount">Ingrese un monto válido</string>
+
     <string-array name="payments_steps">
         <item>@string/payment_amount</item>
         <item>Medio de pago</item>
     </string-array>
-    <string name="payment_amount">Monto</string>
 
 </resources>

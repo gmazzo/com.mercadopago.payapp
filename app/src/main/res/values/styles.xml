@@ -6,6 +6,7 @@
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="buttonStyle">@style/Widget.AppCompat.Button.Colored</item>
+        <item name="cardViewStyle">@style/Widget.AppTheme.CardView</item>
         <item name="fabNextStyle">@style/Widget.AppTheme.FloatingActionButton.Next</item>
     </style>
 
@@ -19,6 +20,11 @@
     <style name="ThemeOverlay.AppTheme.ActionBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="ThemeOverlay.AppTheme.Popup" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Widget.AppTheme.CardView" parent="CardView.Light">
+        <item name="cardCornerRadius">@dimen/margin</item>
+        <item name="contentPadding">@dimen/margin</item>
+    </style>
 
     <style name="Widget.AppTheme.FloatingActionButton" parent="Widget.Design.FloatingActionButton">
         <item name="android:tint">?android:textColorPrimaryInverse</item>
