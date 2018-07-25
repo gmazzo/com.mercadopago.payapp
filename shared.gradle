@@ -1,7 +1,7 @@
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'jacoco'
+apply from: "$rootDir/jacoco.gradle"
 
 android {
     compileSdkVersion 27
@@ -11,10 +11,6 @@ android {
         targetSdkVersion 27
 
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
-    }
-
-    buildTypes.all { bt ->
-        testCoverageEnabled = bt.debuggable
     }
 
     testOptions {

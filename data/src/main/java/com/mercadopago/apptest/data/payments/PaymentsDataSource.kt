@@ -8,14 +8,11 @@ import javax.inject.Inject
 internal class PaymentsDataSource @Inject constructor(private val api: PaymentsAPI) : PaymentsRepository {
 
     override fun listMethods(): Single<List<PaymentMethod>> =
-            api.paymentMethods()
-                    .map { it.filter { it.status.available }.map(this::convertMethod) }
+            api.paymentMethods().map {
+                it.filter { it.status.available }.map { it.toMethod() }
+            }
 
-    private fun convertMethod(method: PaymentsAPI.Method) = PaymentMethod(
-            method.id,
-            method.name,
-            Uri.parse(method.thumbnail),
-            method.minAmount,
-            method.maxAmount)
+    private fun PaymentsAPI.Method.toMethod() =
+            PaymentMethod(id, name, Uri.parse(thumbnail), minAmount, maxAmount)
 
 }
