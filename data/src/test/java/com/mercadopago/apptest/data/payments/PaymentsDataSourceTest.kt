@@ -1,5 +1,6 @@
 package com.mercadopago.apptest.data.payments
 
+import com.mercadopago.apptest.BaseTest
 import com.mercadopago.apptest.data.models.PaymentMethod
 import com.mercadopago.apptest.mockRetrofit
 import com.mercadopago.apptest.toUri
@@ -10,11 +11,8 @@ import org.hamcrest.Matchers.equalTo
 import org.junit.Assert.assertThat
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
 
-@RunWith(RobolectricTestRunner::class)
-class PaymentsDataSourceTest {
+class PaymentsDataSourceTest : BaseTest() {
     private lateinit var interceptor: MockInterceptor
     private lateinit var dataSource: PaymentsDataSource
 

@@ -33,6 +33,7 @@ dependencies {
 
     testImplementation 'com.github.gmazzo:okhttp-mock:1.0.4'
     testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.19.1'
     testImplementation 'org.robolectric:robolectric:3.8'
 
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
