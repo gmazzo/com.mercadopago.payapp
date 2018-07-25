@@ -4,6 +4,28 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="buttonStyle">@style/Widget.AppCompat.Button.Colored</item>
+        <item name="fabNextStyle">@style/Widget.AppTheme.FloatingActionButton.Next</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ThemeOverlay.AppTheme.Inverse" parent="ThemeOverlay.AppCompat.Dark" />
+
+    <style name="ThemeOverlay.AppTheme.ActionBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="ThemeOverlay.AppTheme.Popup" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Widget.AppTheme.FloatingActionButton" parent="Widget.Design.FloatingActionButton">
+        <item name="android:tint">?android:textColorPrimaryInverse</item>
+    </style>
+
+    <style name="Widget.AppTheme.FloatingActionButton.Next">
+        <item name="android:src">@drawable/ic_arrow_forward</item>
     </style>
 
 </resources>

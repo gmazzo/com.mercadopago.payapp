@@ -9,5 +9,14 @@ android {
 }
 
 dependencies {
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+
     implementation project(':data')
+
+    implementation "com.android.support:appcompat-v7:$appCompatVersion"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation "com.android.support:design:$appCompatVersion"
+    implementation "com.android.support:recyclerview-v7:$appCompatVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
 }
