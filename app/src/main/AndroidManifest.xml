@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mercadopago.apptest">
+    package="com.mercadopago.payapp">
 
     <application
         android:name=".Application"
