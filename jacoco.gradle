@@ -54,7 +54,7 @@ android.testVariants.all {
         ])
 
         doLast {
-            println "Wrote HTML coverage report to ${reports.html.destination}"
+            println "Wrote HTML coverage report to ${reports.html.destination}/index.html"
             println "Wrote XML coverage report to ${reports.xml.destination}"
         }
 
