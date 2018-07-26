@@ -1,7 +1,6 @@
 package com.mercadopago.payapp.payments.methods
 
-import com.mercadopago.payapp.payments.ARG_PAYMENT
-import com.mercadopago.payapp.payments.models.Payment
+import com.mercadopago.payapp.payments.getPayment
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -20,8 +19,7 @@ abstract class PaymentMethodModule {
 
         @JvmStatic
         @Provides
-        fun providePayment(fragment: PaymentMethodFragment) =
-                fragment.arguments!!.getParcelable(ARG_PAYMENT) as Payment
+        fun providePayment(fragment: PaymentMethodFragment) = fragment.arguments!!.getPayment()
 
     }
 

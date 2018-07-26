@@ -20,7 +20,7 @@ class PaymentHeaderFragment : DaggerFragment(), PaymentHeader {
     override fun updatePayment(payment: Payment?) {
         bindText(amount, amountLabel, payment?.amount?.let { getString(R.string.payment_amount_with_currency, it) })
         bindText(method, methodLabel, payment?.method?.name)
-        bindText(bank, bankLabel, payment?.bank)// TODO use model here
+        bindText(bank, bankLabel, payment?.bank?.name)
         bindText(installments, installmentsLabel, payment?.installments?.let { resources.getQuantityString(R.plurals.payment_installments, it, it) })
         view!!.isVisible = amount.isVisible
     }

@@ -1,38 +1,33 @@
-package com.mercadopago.payapp.payments.methods
+package com.mercadopago.payapp.payments.banks
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import com.google.android.flexbox.FlexboxLayoutManager
-import com.google.android.flexbox.JustifyContent
 import com.mercadopago.payapp.R
-import com.mercadopago.payapp.data.models.PaymentMethod
+import com.mercadopago.payapp.data.models.PaymentBank
 import com.mercadopago.payapp.payments.ARG_PAYMENT
-import com.mercadopago.payapp.payments.banks.PaymentBankFragment
 import com.mercadopago.payapp.payments.models.Payment
-import com.mercadopago.payapp.replaceWith
 import com.mercadopago.payapp.toast
 import com.mercadopago.utils.ItemsAdapter
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_list.*
 import javax.inject.Inject
 
-class PaymentMethodFragment : DaggerFragment(), PaymentMethodContract.View {
+class PaymentBankFragment : DaggerFragment(), PaymentBankContract.View {
 
     @Inject
-    internal lateinit var presenter: PaymentMethodContract.Presenter
+    internal lateinit var presenter: PaymentBankContract.Presenter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) =
-            inflater.inflate(R.layout.fragment_payment_methods, container, false)!!
+            inflater.inflate(R.layout.fragment_payment_banks, container, false)!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recycler.layoutManager = FlexboxLayoutManager(context!!).apply {
-            justifyContent = JustifyContent.CENTER
-        }
+        recycler.layoutManager = LinearLayoutManager(context!!)
     }
 
     override fun onStart() {
@@ -47,8 +42,8 @@ class PaymentMethodFragment : DaggerFragment(), PaymentMethodContract.View {
         presenter.onStop()
     }
 
-    override fun showMethods(methods: List<PaymentMethod>) {
-        recycler.adapter = ItemsAdapter(methods, presenter::onMethodSelected, ::PaymentMethodViewHolder)
+    override fun showBanks(banks: List<PaymentBank>) {
+        recycler.adapter = ItemsAdapter(banks, presenter::onBankSelected, ::PaymentBankViewHolder)
         switcher.displayedChild = 1
     }
 
@@ -57,12 +52,12 @@ class PaymentMethodFragment : DaggerFragment(), PaymentMethodContract.View {
     }
 
     override fun showNextScreen(payment: Payment) {
-        replaceWith(PaymentBankFragment.create(payment))
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     companion object {
 
-        fun create(payment: Payment) = PaymentMethodFragment().apply {
+        fun create(payment: Payment) = PaymentBankFragment().apply {
             arguments = bundleOf(ARG_PAYMENT to payment)
         }
 
