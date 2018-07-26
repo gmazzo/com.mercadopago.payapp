@@ -31,7 +31,7 @@
     </style>
 
     <style name="Widget.AppTheme.FloatingActionButton.Next">
-        <item name="android:src">@drawable/ic_arrow_forward</item>
+        <item name="android:src">@drawable/ic_forward</item>
     </style>
 
 </resources>

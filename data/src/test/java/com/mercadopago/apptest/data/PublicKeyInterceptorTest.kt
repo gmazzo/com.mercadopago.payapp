@@ -7,24 +7,18 @@ import okhttp3.Request
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.mockito.ArgumentCaptor
-import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 
 class PublicKeyInterceptorTest : BaseTest() {
-
-    @InjectMocks
-    lateinit var interceptor: PublicKeyInterceptor
+    private val interceptor = PublicKeyInterceptor(TEST_KEY)
 
     @Mock
     lateinit var chain: Interceptor.Chain
 
     @Test
     fun testIntercept() {
-        val request = Request.Builder()
-                .get()
-                .url("http://someurl.dummy/test")
-                .build()
+        val request = Request.Builder().get().url(TEST_URL).build()
         val requestCaptor = ArgumentCaptor.forClass(Request::class.java)
 
         `when`(chain.request()).thenReturn(request)
@@ -32,8 +26,15 @@ class PublicKeyInterceptorTest : BaseTest() {
 
         interceptor.intercept(chain)
 
-        assertEquals("http://someurl.dummy/test?public_key=${BuildConfig.PUBLIC_KEY}",
+        assertEquals("$TEST_URL?public_key=$TEST_KEY",
                 requestCaptor.value.url().toString())
+    }
+
+    companion object {
+
+        const val TEST_KEY = "aKey"
+        const val TEST_URL = "http://someurl.dummy/test"
+
     }
 
 }

@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                    .add(R.id.fragmentContainer, PaymentAmountFragment())
+                    .add(R.id.fragmentContainer, PaymentAmountFragment.create())
                     .commitNow()
         }
     }

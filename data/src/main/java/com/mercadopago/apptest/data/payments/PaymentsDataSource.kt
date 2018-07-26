@@ -5,7 +5,8 @@ import com.mercadopago.apptest.data.models.PaymentMethod
 import io.reactivex.Single
 import javax.inject.Inject
 
-internal class PaymentsDataSource @Inject constructor(private val api: PaymentsAPI) : PaymentsRepository {
+internal class PaymentsDataSource @Inject constructor(
+        private val api: PaymentsAPI) : PaymentsRepository {
 
     override fun listMethods(): Single<List<PaymentMethod>> =
             api.paymentMethods().map {
@@ -13,6 +14,6 @@ internal class PaymentsDataSource @Inject constructor(private val api: PaymentsA
             }
 
     private fun PaymentsAPI.Method.toMethod() =
-            PaymentMethod(id, name, Uri.parse(thumbnail), minAmount, maxAmount)
+            PaymentMethod(id, name, Uri.parse(thumbnail), minAmount, maxAmount, accreditationTime)
 
 }

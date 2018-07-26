@@ -116,5 +116,62 @@
     "processing_modes": [
       "aggregator"
     ]
+  },
+  {
+    "id": "cmr",
+    "name": "CMR",
+    "payment_type_id": "credit_card",
+    "status": "active",
+    "secure_thumbnail": "https://www.mercadopago.com/org-img/MP3/API/logos/cmr.gif",
+    "thumbnail": "http://img.mlstatic.com/org-img/MP3/API/logos/cmr.gif",
+    "deferred_capture": "supported",
+    "settings": [
+      {
+        "security_code": {
+          "mode": "mandatory",
+          "card_location": "back",
+          "length": 3
+        },
+        "card_number": {
+          "length": 16,
+          "validation": "standard"
+        },
+        "bin": {
+          "pattern": "^(557039)",
+          "installments_pattern": "^(557039)",
+          "exclusion_pattern": null
+        }
+      }
+    ],
+    "additional_info_needed": [
+      "cardholder_name",
+      "cardholder_identification_type",
+      "cardholder_identification_number"
+    ],
+    "min_allowed_amount": 2,
+    "max_allowed_amount": 250000,
+    "accreditation_time": 2880,
+    "financial_institutions": [],
+    "processing_modes": [
+      "aggregator"
+    ]
+  },
+  {
+    "id": "cobroexpress",
+    "name": "CobroExpress",
+    "payment_type_id": "ticket",
+    "status": "active",
+    "secure_thumbnail": "https://www.mercadopago.com/org-img/MP3/API/logos/cobroexpress.gif",
+    "thumbnail": "http://img.mlstatic.com/org-img/MP3/API/logos/cobroexpress.gif",
+    "deferred_capture": "does_not_apply",
+    "settings": [],
+    "additional_info_needed": [],
+    "min_allowed_amount": 1,
+    "max_allowed_amount": 60000,
+    "accreditation_time": 0,
+    "financial_institutions": [],
+    "processing_modes": [
+      "aggregator"
+    ]
   }
 ]

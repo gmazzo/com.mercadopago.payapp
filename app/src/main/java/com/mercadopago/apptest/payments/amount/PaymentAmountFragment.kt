@@ -5,17 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.mercadopago.apptest.R
-import com.mercadopago.apptest.payments.methods.PaymentMethodsFragment
+import com.mercadopago.apptest.payments.methods.PaymentMethodFragment
 import com.mercadopago.apptest.payments.models.Payment
+import com.mercadopago.apptest.replaceWith
 import com.mercadopago.apptest.showError
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_payment_amount.*
 import javax.inject.Inject
 
-internal class PaymentAmountFragment : DaggerFragment(), PaymentAmountContract.View {
+class PaymentAmountFragment : DaggerFragment(), PaymentAmountContract.View {
 
     @Inject
-    lateinit var presenter: PaymentAmountContract.Presenter
+    internal lateinit var presenter: PaymentAmountContract.Presenter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) =
             inflater.inflate(R.layout.fragment_payment_amount, container, false)!!
@@ -25,7 +26,7 @@ internal class PaymentAmountFragment : DaggerFragment(), PaymentAmountContract.V
 
         amount.editText!!.setOnEditorActionListener { _, _, _ -> next.performClick() }
         next.setOnClickListener { _ ->
-            val amount = amount.editText!!.text.toString().toIntOrNull()
+            val amount = amount.editText!!.text.toString().toFloatOrNull()
 
             presenter.onAmountEntered(amount)
         }
@@ -36,10 +37,13 @@ internal class PaymentAmountFragment : DaggerFragment(), PaymentAmountContract.V
     }
 
     override fun showNextScreen(payment: Payment) {
-        fragmentManager!!.beginTransaction()
-                .replace(id, PaymentMethodsFragment.create(payment))
-                .addToBackStack(null)
-                .commit()
+        replaceWith(PaymentMethodFragment.create(payment))
+    }
+
+    companion object {
+
+        fun create() = PaymentAmountFragment()
+
     }
 
 }

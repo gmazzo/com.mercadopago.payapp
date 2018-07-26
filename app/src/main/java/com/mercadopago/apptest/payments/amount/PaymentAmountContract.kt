@@ -6,7 +6,7 @@ internal interface PaymentAmountContract {
 
     interface Presenter {
 
-        fun onAmountEntered(amount: Int?)
+        fun onAmountEntered(amount: Float?)
 
     }
 

@@ -35,9 +35,11 @@ class PaymentsDataSourceTest : BaseTest() {
         val result = dataSource.listMethods().blockingGet()
 
         assertThat(result, equalTo(listOf(
-                PaymentMethod("visa", "Visa", "http://img.mlstatic.com/org-img/MP3/API/logos/visa.gif".toUri(), 2, 250000),
-                PaymentMethod("master", "Mastercard", "http://img.mlstatic.com/org-img/MP3/API/logos/master.gif".toUri(), 2, 250000),
-                PaymentMethod("amex", "American Express", "http://img.mlstatic.com/org-img/MP3/API/logos/amex.gif".toUri(), 2, 250000)
+                PaymentMethod("visa", "Visa", "http://img.mlstatic.com/org-img/MP3/API/logos/visa.gif".toUri(), 2, 250000, 2880),
+                PaymentMethod("master", "Mastercard", "http://img.mlstatic.com/org-img/MP3/API/logos/master.gif".toUri(), 2, 250000, 2880),
+                PaymentMethod("amex", "American Express", "http://img.mlstatic.com/org-img/MP3/API/logos/amex.gif".toUri(), 2, 250000, 2880),
+                PaymentMethod("cmr", "CMR", "http://img.mlstatic.com/org-img/MP3/API/logos/cmr.gif".toUri(), 2, 250000, 2880),
+                PaymentMethod("cobroexpress", "CobroExpress", "http://img.mlstatic.com/org-img/MP3/API/logos/cobroexpress.gif".toUri(), 1, 60000, 0)
         )))
     }
 
