@@ -35,7 +35,13 @@ class PaymentMethodFragment : DaggerFragment(), PaymentMethodContract.View {
     override fun onStart() {
         super.onStart()
 
-        presenter.onStartLoading()
+        presenter.onStart()
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        presenter.onStop()
     }
 
     override fun showMethods(methods: List<PaymentMethod>) {
@@ -44,7 +50,7 @@ class PaymentMethodFragment : DaggerFragment(), PaymentMethodContract.View {
     }
 
     override fun showError(error: Throwable) {
-        error.toast(context!!)
+        error.toast(context)
     }
 
     override fun showNextScreen(payment: Payment) {

@@ -7,7 +7,9 @@ internal interface PaymentMethodContract {
 
     interface Presenter {
 
-        fun onStartLoading()
+        fun onStart()
+
+        fun onStop()
 
         fun onMethodSelected(method: PaymentMethod)
 

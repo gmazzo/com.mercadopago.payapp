@@ -45,7 +45,7 @@ internal class PaymentMethodsPresenterTest : BaseTest() {
         `when`(repository.listMethods()).thenReturn(Single.just(listOf(METHOD1, METHOD2, METHOD3)))
 
         presenter = PaymentMethodPresenter(view, repository, Payment(amount = amount))
-        presenter.onStartLoading()
+        presenter.onStart()
 
         verify(repository).listMethods()
         verify(view).showMethods(expectedMethods.toList())
@@ -58,7 +58,7 @@ internal class PaymentMethodsPresenterTest : BaseTest() {
         `when`(repository.listMethods()).thenReturn(Single.error(error))
 
         presenter = PaymentMethodPresenter(view, repository, Payment(amount = 100f))
-        presenter.onStartLoading()
+        presenter.onStart()
 
         verify(view).showError(error)
     }

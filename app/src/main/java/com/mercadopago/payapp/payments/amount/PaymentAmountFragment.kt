@@ -32,18 +32,18 @@ class PaymentAmountFragment : DaggerFragment(), PaymentAmountContract.View {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+
+        presenter.onStart()
+    }
+
     override fun showAmountError() {
         amount.showError = getText(R.string.err_payment_amount)
     }
 
     override fun showNextScreen(payment: Payment) {
         replaceWith(PaymentMethodFragment.create(payment))
-    }
-
-    companion object {
-
-        fun create() = PaymentAmountFragment()
-
     }
 
 }

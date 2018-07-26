@@ -16,26 +16,39 @@ internal class PaymentAmountPresenterTest : BaseTest() {
     lateinit var view: PaymentAmountContract.View
 
     @Test
-    fun testOnAmountEntered_Null() {
-        presenter.onAmountEntered(null)
-
-        verify(view).showAmountError()
-    }
-
-    @Test
     fun testOnAmountEntered_100() {
-        testOnAmountEntered(100f)
+        testOnAmountEntered(100f, false)
     }
 
     @Test
     fun testOnAmountEntered_200() {
-        testOnAmountEntered(200f)
+        testOnAmountEntered(200f, false)
     }
 
-    private fun testOnAmountEntered(amount: Float) {
+    @Test
+    fun testOnAmountEntered_Null() {
+        testOnAmountEntered(null, true)
+    }
+
+    @Test
+    fun testOnAmountEntered_0() {
+        testOnAmountEntered(0f, true)
+    }
+
+    @Test
+    fun testOnAmountEntered_Negative() {
+        testOnAmountEntered(-1f, true)
+    }
+
+    private fun testOnAmountEntered(amount: Float?, shouldFail: Boolean) {
         presenter.onAmountEntered(amount)
 
-        verify(view).showNextScreen(Payment(amount = amount))
+        if (shouldFail) {
+            verify(view).showAmountError()
+
+        } else {
+            verify(view).showNextScreen(Payment(amount = amount))
+        }
     }
 
 }

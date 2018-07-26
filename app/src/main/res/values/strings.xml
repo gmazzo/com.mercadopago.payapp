@@ -1,14 +1,24 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:locale="es">
-    <string name="app_name">App Test</string>
+    <string name="app_name">Payments App</string>
+
+    <string name="action_continue">Continuar</string>
 
     <!-- Payments -->
     <string name="payment_amount">Monto</string>
+    <string name="payment_method">Método</string>
+    <string name="payment_bank">Banco</string>
+    <string name="payment_installments">Cuotas</string>
+    <string name="payment_amount_with_currency">$ %1$.2f</string>
     <string name="err_payment_amount">Ingrese un monto válido</string>
-
     <string name="payment_method_delay_instant">Instantáneo</string>
+
     <plurals name="payment_method_delay">
         <item quantity="one">%d hora</item>
         <item quantity="other">%d horas</item>
+    </plurals>
+    <plurals name="payment_installments">
+        <item quantity="one">%d cuota</item>
+        <item quantity="other">%d cuotas</item>
     </plurals>
 
 </resources>

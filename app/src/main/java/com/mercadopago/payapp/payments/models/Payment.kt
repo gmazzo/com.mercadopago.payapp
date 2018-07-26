@@ -6,4 +6,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Payment(val amount: Float? = null,
-                   val method: PaymentMethod? = null) : Parcelable
+                   val method: PaymentMethod? = null,
+                   val bank: String? = null, // TODO this has to be a model
+                   val installments: Int? = null) : Parcelable

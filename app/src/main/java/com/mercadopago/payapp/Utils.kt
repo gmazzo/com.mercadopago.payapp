@@ -6,11 +6,20 @@ import android.support.design.widget.TextInputLayout
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 
 fun ViewGroup.inflate(@LayoutRes layoutId: Int, attachToRoot: Boolean = false) =
         LayoutInflater.from(context)
                 .inflate(layoutId, this, attachToRoot)!!
+
+var TextView.textOrHide: CharSequence?
+    get() = text
+    set(value) {
+        text = value
+        isVisible = !value.isNullOrBlank()
+    }
 
 var TextInputLayout.showError
     get() = error
@@ -34,8 +43,10 @@ fun CharSequence.toast(context: Context, duration: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(context, this, duration).show()
 }
 
-fun Throwable.toast(context: Context) {
+fun Throwable.toast(context: Context?) {
     printStackTrace()
 
-    localizedMessage.toast(context, Toast.LENGTH_LONG)
+    if (context != null) {
+        localizedMessage.toast(context, Toast.LENGTH_LONG)
+    }
 }

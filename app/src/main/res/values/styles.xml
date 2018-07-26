@@ -6,8 +6,8 @@
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="buttonStyle">@style/Widget.AppCompat.Button.Colored</item>
+        <item name="buttonContinueStyle">@style/Widget.AppTheme.Button.Continue</item>
         <item name="cardViewStyle">@style/Widget.AppTheme.CardView</item>
-        <item name="fabNextStyle">@style/Widget.AppTheme.FloatingActionButton.Next</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -26,12 +26,14 @@
         <item name="contentPadding">@dimen/margin</item>
     </style>
 
-    <style name="Widget.AppTheme.FloatingActionButton" parent="Widget.Design.FloatingActionButton">
-        <item name="android:tint">?android:textColorPrimaryInverse</item>
+    <style name="Widget.AppTheme.Button" parent="Widget.AppCompat.Button.Colored" />
+
+    <style name="Widget.AppTheme.Button.Continue">
+        <item name="android:text">@string/action_continue</item>
     </style>
 
-    <style name="Widget.AppTheme.FloatingActionButton.Next">
-        <item name="android:src">@drawable/ic_forward</item>
+    <style name="Widget.AppTheme.FloatingActionButton" parent="Widget.Design.FloatingActionButton">
+        <item name="android:tint">?android:textColorPrimaryInverse</item>
     </style>
 
 </resources>
