@@ -1,12 +1,13 @@
-package com.mercadopago.payapp.data.payments
+package com.mercadopago.payapp.data.source
 
+import com.mercadopago.payapp.data.PaymentsRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
 
 @Module
-abstract class PaymentsModule {
+abstract class PaymentsDataSourceModule {
 
     @Binds
     internal abstract fun bindPaymentsRepository(impl: PaymentsDataSource): PaymentsRepository

@@ -1,7 +1,7 @@
 package com.mercadopago.payapp.data
 
 import android.content.Context
-import com.mercadopago.payapp.data.payments.PaymentsModule
+import com.mercadopago.payapp.data.source.PaymentsDataSourceModule
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -11,7 +11,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-@Module(includes = [PaymentsModule::class])
+@Module(includes = [PaymentsDataSourceModule::class])
 class DataModule {
 
     @Provides

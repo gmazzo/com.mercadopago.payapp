@@ -1,4 +1,4 @@
-package com.mercadopago.payapp.data.payments
+package com.mercadopago.payapp.data
 
 import com.mercadopago.payapp.data.models.PaymentMethod
 import io.reactivex.Single

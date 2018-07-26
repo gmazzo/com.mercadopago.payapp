@@ -1,7 +1,7 @@
 package com.mercadopago.payapp.payments.methods
 
+import com.mercadopago.payapp.data.PaymentsRepository
 import com.mercadopago.payapp.data.models.PaymentMethod
-import com.mercadopago.payapp.data.payments.PaymentsRepository
 import com.mercadopago.payapp.payments.PaymentHeader
 import com.mercadopago.payapp.payments.models.Payment
 import io.reactivex.android.schedulers.AndroidSchedulers

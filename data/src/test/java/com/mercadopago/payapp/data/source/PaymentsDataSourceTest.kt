@@ -1,4 +1,4 @@
-package com.mercadopago.payapp.data.payments
+package com.mercadopago.payapp.data.source
 
 import com.mercadopago.payapp.BaseTest
 import com.mercadopago.payapp.data.models.PaymentMethod

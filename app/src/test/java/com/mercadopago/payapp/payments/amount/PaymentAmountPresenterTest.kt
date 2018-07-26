@@ -1,6 +1,7 @@
 package com.mercadopago.payapp.payments.amount
 
 import com.mercadopago.payapp.BaseTest
+import com.mercadopago.payapp.payments.PaymentHeader
 import com.mercadopago.payapp.payments.models.Payment
 import org.junit.Test
 import org.mockito.InjectMocks
@@ -10,10 +11,20 @@ import org.mockito.Mockito.verify
 internal class PaymentAmountPresenterTest : BaseTest() {
 
     @InjectMocks
-    lateinit var presenter: PaymentAmountPresenter
+    private lateinit var presenter: PaymentAmountPresenter
 
     @Mock
-    lateinit var view: PaymentAmountContract.View
+    private lateinit var view: PaymentAmountContract.View
+
+    @Mock
+    private lateinit var header: PaymentHeader
+
+    @Test
+    fun testOnStart() {
+        presenter.onStart()
+
+        verify(header).updatePayment(null)
+    }
 
     @Test
     fun testOnAmountEntered_100() {
