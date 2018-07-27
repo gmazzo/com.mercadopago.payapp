@@ -18,10 +18,7 @@ open class ItemsAdapter<T, VH : ItemsViewHolder<T>>(
             }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        with(holder) {
-
-            item = items[position]
-        }
+        holder.item = items[position]
     }
 
 }

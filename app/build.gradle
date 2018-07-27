@@ -3,11 +3,9 @@ apply from: '../shared.gradle'
 
 android {
     defaultConfig {
-        minSdkVersion 17
-
         versionCode 1
         versionName '1.0'
-        
+
         testInstrumentationRunner 'com.mercadopago.test.RxAwareAndroidJUnitRunner'
     }
 }

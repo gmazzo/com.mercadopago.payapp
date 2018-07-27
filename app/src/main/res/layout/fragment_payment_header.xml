@@ -7,7 +7,8 @@
     android:layout_margin="@dimen/margin"
     android:paddingStart="@dimen/margin"
     android:paddingEnd="@dimen/margin"
-    android:animateLayoutChanges="true">
+    android:animateLayoutChanges="true"
+    tools:ignore="RtlHardcoded">
 
     <android.support.constraint.Barrier
         android:id="@+id/barrier"
@@ -20,7 +21,7 @@
         android:id="@+id/amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin"
+        android:layout_marginLeft="@dimen/margin"
         android:textAppearance="?android:textAppearanceLarge"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
@@ -47,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin"
-        android:layout_marginStart="@dimen/margin"
+        android:layout_marginLeft="@dimen/margin"
         android:textAppearance="?android:textAppearanceLarge"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/amount"
@@ -74,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin"
-        android:layout_marginStart="@dimen/margin"
+        android:layout_marginLeft="@dimen/margin"
         android:textAppearance="?android:textAppearanceLarge"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/method"
@@ -101,7 +102,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin"
-        android:layout_marginStart="@dimen/margin"
+        android:layout_marginLeft="@dimen/margin"
         android:textAppearance="?android:textAppearanceLarge"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/bank"

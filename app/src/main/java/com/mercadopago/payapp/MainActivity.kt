@@ -1,9 +1,6 @@
 package com.mercadopago.payapp
 
-import android.content.Context
 import android.os.Bundle
-import android.support.design.widget.AppBarLayout
-import android.util.AttributeSet
 import com.mercadopago.payapp.payments.PaymentHeaderFragment
 import com.mercadopago.payapp.payments.amount.PaymentAmountFragment
 import dagger.android.support.DaggerAppCompatActivity
@@ -23,10 +20,6 @@ class MainActivity : DaggerAppCompatActivity() {
                     .add(R.id.fragmentContainer, PaymentAmountFragment())
                     .commitNow()
         }
-    }
-
-    class OverlayScrollingViewBehavior(context: Context, attrs: AttributeSet) : AppBarLayout.ScrollingViewBehavior(context, attrs) {
-
     }
 
 }
