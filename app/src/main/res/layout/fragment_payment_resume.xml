@@ -28,10 +28,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:gravity="center">
 
                 <TextView
                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:id="@+id/paid"
                     android:theme="@style/ThemeOverlay.AppTheme.Good"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

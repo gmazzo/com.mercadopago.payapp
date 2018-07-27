@@ -9,8 +9,6 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 27
-
-        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
 
     testOptions {
@@ -42,5 +40,8 @@ dependencies {
     testImplementation 'org.robolectric:robolectric:3.8'
 
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:3.0.2'
+    androidTestImplementation 'com.squareup.rx.idler:rx2-idler:0.9.0'
 }

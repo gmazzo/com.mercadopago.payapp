@@ -3,7 +3,6 @@ package com.mercadopago.payapp.payments.installments
 import com.mercadopago.payapp.*
 import com.mercadopago.payapp.data.PaymentsRepository
 import com.mercadopago.payapp.data.models.PaymentBank
-import com.mercadopago.payapp.data.models.PaymentInstallments
 import com.mercadopago.payapp.data.models.PaymentMethod
 import com.mercadopago.payapp.payments.PaymentHeader
 import com.mercadopago.payapp.payments.models.Payment
@@ -85,7 +84,5 @@ internal class PaymentInstallmentsPresenterTest : BaseTest() {
         val TEST_PAYMENT = Payment(amount = 100f, method = TEST_METHOD1, bank = TEST_BANK1)
 
     }
-
-    private fun Int.toInstallments() = PaymentInstallments(installments = this, message = "$this installments")
 
 }

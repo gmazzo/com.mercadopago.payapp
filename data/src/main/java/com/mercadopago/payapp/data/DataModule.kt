@@ -4,6 +4,7 @@ import android.content.Context
 import com.mercadopago.payapp.data.source.PaymentsDataSourceModule
 import dagger.Module
 import dagger.Provides
+import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -31,7 +32,7 @@ class DataModule {
     @Singleton
     fun provideRetrofit(client: OkHttpClient) = Retrofit.Builder()
             .client(client)
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BuildConfig.ENDPOINT_URL)
             .build()!!

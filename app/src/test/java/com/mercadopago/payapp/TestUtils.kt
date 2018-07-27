@@ -2,6 +2,7 @@ package com.mercadopago.payapp
 
 import android.net.Uri
 import com.mercadopago.payapp.data.models.PaymentBank
+import com.mercadopago.payapp.data.models.PaymentInstallments
 import com.mercadopago.payapp.data.models.PaymentMethod
 
 val TEST_URI = Uri.parse("http://test")
@@ -12,3 +13,5 @@ val TEST_METHOD3 = PaymentMethod("3", "name3", TEST_URI, 20f, 80f, 2880)
 
 val TEST_BANK1 = PaymentBank(1, "bank1", TEST_URI)
 val TEST_BANK2 = PaymentBank(2, "bank2", TEST_URI)
+
+fun Int.toInstallments() = PaymentInstallments(installments = this, message = "$this installments")
