@@ -21,4 +21,6 @@
         <item quantity="other">%d cuotas</item>
     </plurals>
 
+    <string name="msg_no_results">Sin resultados</string>
+
 </resources>

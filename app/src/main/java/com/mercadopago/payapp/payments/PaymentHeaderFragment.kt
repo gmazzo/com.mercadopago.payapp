@@ -9,19 +9,23 @@ import androidx.core.view.isVisible
 import com.mercadopago.payapp.R
 import com.mercadopago.payapp.payments.models.Payment
 import com.mercadopago.payapp.textOrHide
+import com.mercadopago.payapp.withStyle
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_payment_header.*
 
 class PaymentHeaderFragment : DaggerFragment(), PaymentHeader {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) =
-            inflater.inflate(R.layout.fragment_payment_header, container, false)!!
+            inflater.withStyle(R.style.ThemeOverlay_AppTheme_Inverse)
+                    .inflate(R.layout.fragment_payment_header, container, false)!!
 
     override fun updatePayment(payment: Payment?) {
         bindText(amount, amountLabel, payment?.amount?.let { getString(R.string.payment_amount_with_currency, it) })
         bindText(method, methodLabel, payment?.method?.name)
         bindText(bank, bankLabel, payment?.bank?.name)
-        bindText(installments, installmentsLabel, payment?.installments?.let { resources.getQuantityString(R.plurals.payment_installments, it, it) })
+        bindText(installments, installmentsLabel, payment?.installments?.let {
+            resources.getQuantityString(R.plurals.payment_installments, it.installments, it)
+        })
         view!!.isVisible = amount.isVisible
     }
 

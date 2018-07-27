@@ -2,4 +2,5 @@
 <resources>
     <item name="fragment_payment_methods" type="layout">@layout/fragment_list</item>
     <item name="fragment_payment_banks" type="layout">@layout/fragment_list</item>
+    <item name="fragment_payment_installments" type="layout">@layout/fragment_list</item>
 </resources>

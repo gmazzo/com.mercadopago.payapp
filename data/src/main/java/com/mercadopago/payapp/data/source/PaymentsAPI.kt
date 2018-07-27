@@ -12,4 +12,9 @@ internal interface PaymentsAPI {
     @GET("payment_methods/card_issuers")
     fun cardIssuers(@Query("payment_method_id") paymentMethodId: String): Single<List<Bank>>
 
+    @GET("payment_methods/installments")
+    fun installments(@Query("amount") amount: Float,
+                     @Query("payment_method_id") paymentMethodId: String,
+                     @Query("issuer.id") issuerId: Int): Single<List<Installments>>
+
 }

@@ -6,6 +6,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class PaymentBank(
-        val id: String,
+        val id: Int,
         val name: String,
         val image: Uri) : Parcelable

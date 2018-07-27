@@ -9,7 +9,9 @@ import androidx.core.os.bundleOf
 import com.mercadopago.payapp.R
 import com.mercadopago.payapp.data.models.PaymentBank
 import com.mercadopago.payapp.payments.ARG_PAYMENT
+import com.mercadopago.payapp.payments.installments.PaymentInstallmentsFragment
 import com.mercadopago.payapp.payments.models.Payment
+import com.mercadopago.payapp.replaceWith
 import com.mercadopago.payapp.toast
 import com.mercadopago.utils.ItemsAdapter
 import dagger.android.support.DaggerFragment
@@ -44,7 +46,7 @@ class PaymentBankFragment : DaggerFragment(), PaymentBankContract.View {
 
     override fun showBanks(banks: List<PaymentBank>) {
         recycler.adapter = ItemsAdapter(banks, presenter::onBankSelected, ::PaymentBankViewHolder)
-        switcher.displayedChild = 1
+        switcher.displayedChild = if (banks.isEmpty()) 2 else 1
     }
 
     override fun showError(error: Throwable) {
@@ -52,7 +54,7 @@ class PaymentBankFragment : DaggerFragment(), PaymentBankContract.View {
     }
 
     override fun showNextScreen(payment: Payment) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        replaceWith(PaymentInstallmentsFragment.create(payment))
     }
 
     companion object {

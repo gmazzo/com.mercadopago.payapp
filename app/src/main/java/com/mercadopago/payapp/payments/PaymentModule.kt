@@ -6,6 +6,8 @@ import com.mercadopago.payapp.payments.amount.PaymentAmountFragment
 import com.mercadopago.payapp.payments.amount.PaymentAmountModule
 import com.mercadopago.payapp.payments.banks.PaymentBankFragment
 import com.mercadopago.payapp.payments.banks.PaymentBankModule
+import com.mercadopago.payapp.payments.installments.PaymentInstallmentsFragment
+import com.mercadopago.payapp.payments.installments.PaymentInstallmentsModule
 import com.mercadopago.payapp.payments.methods.PaymentMethodFragment
 import com.mercadopago.payapp.payments.methods.PaymentMethodModule
 import dagger.Module
@@ -26,6 +28,9 @@ abstract class PaymentModule {
 
     @ContributesAndroidInjector(modules = [PaymentBankModule::class])
     abstract fun providePaymentBankFragment(): PaymentBankFragment
+
+    @ContributesAndroidInjector(modules = [PaymentInstallmentsModule::class])
+    abstract fun providePaymentInstallmentsFragment(): PaymentInstallmentsFragment
 
     @Module
     companion object {

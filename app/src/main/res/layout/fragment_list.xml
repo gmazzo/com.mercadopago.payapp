@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin">
 
-    <ViewSwitcher
+    <ViewFlipper
         android:id="@+id/switcher"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,6 +23,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </ViewSwitcher>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:text="@string/msg_no_results"
+            android:gravity="center" />
+
+    </ViewFlipper>
 
 </android.support.v7.widget.CardView>
