@@ -46,7 +46,7 @@ class PaymentBankFragment : DaggerFragment(), PaymentBankContract.View {
 
     override fun showBanks(banks: List<PaymentBank>) {
         recycler.adapter = ItemsAdapter(banks, presenter::onBankSelected, ::PaymentBankViewHolder)
-        switcher.displayedChild = if (banks.isEmpty()) 2 else 1
+        flipper.displayedChild = if (banks.isEmpty()) 2 else 1
     }
 
     override fun showError(error: Throwable) {

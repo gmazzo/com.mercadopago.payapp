@@ -10,6 +10,8 @@ import com.mercadopago.payapp.payments.installments.PaymentInstallmentsFragment
 import com.mercadopago.payapp.payments.installments.PaymentInstallmentsModule
 import com.mercadopago.payapp.payments.methods.PaymentMethodFragment
 import com.mercadopago.payapp.payments.methods.PaymentMethodModule
+import com.mercadopago.payapp.payments.resume.PaymentResumeFragment
+import com.mercadopago.payapp.payments.resume.PaymentResumeModule
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
@@ -31,6 +33,9 @@ abstract class PaymentModule {
 
     @ContributesAndroidInjector(modules = [PaymentInstallmentsModule::class])
     abstract fun providePaymentInstallmentsFragment(): PaymentInstallmentsFragment
+
+    @ContributesAndroidInjector(modules = [PaymentResumeModule::class])
+    abstract fun providePaymentResumeFragment(): PaymentResumeFragment
 
     @Module
     companion object {

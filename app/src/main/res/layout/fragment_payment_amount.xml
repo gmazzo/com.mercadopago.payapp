@@ -26,10 +26,11 @@
         </android.support.design.widget.TextInputLayout>
 
         <Button
-            style="?buttonContinueStyle"
             android:id="@+id/next"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:minHeight="?actionBarSize"
+            android:text="@string/action_continue" />
 
     </LinearLayout>
 

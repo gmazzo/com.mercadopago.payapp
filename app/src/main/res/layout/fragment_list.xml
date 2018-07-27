@@ -6,7 +6,7 @@
     android:layout_margin="@dimen/margin">
 
     <ViewFlipper
-        android:id="@+id/switcher"
+        android:id="@+id/flipper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:inAnimation="@android:anim/fade_in"

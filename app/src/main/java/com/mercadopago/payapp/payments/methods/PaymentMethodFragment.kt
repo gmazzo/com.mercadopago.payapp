@@ -49,7 +49,7 @@ class PaymentMethodFragment : DaggerFragment(), PaymentMethodContract.View {
 
     override fun showMethods(methods: List<PaymentMethod>) {
         recycler.adapter = ItemsAdapter(methods, presenter::onMethodSelected, ::PaymentMethodViewHolder)
-        switcher.displayedChild = if (methods.isEmpty()) 2 else 1
+        flipper.displayedChild = if (methods.isEmpty()) 2 else 1
     }
 
     override fun showError(error: Throwable) {

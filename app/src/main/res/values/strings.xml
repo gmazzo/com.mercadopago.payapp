@@ -2,6 +2,9 @@
     <string name="app_name">Payments App</string>
 
     <string name="action_continue">Continuar</string>
+    <string name="action_pay">Pagar</string>
+    <string name="msg_paid">Pagado!</string>
+    <string name="msg_no_results">Sin resultados</string>
 
     <!-- Payments -->
     <string name="payment_amount">Monto</string>
@@ -20,7 +23,5 @@
         <item quantity="one">%d cuota</item>
         <item quantity="other">%d cuotas</item>
     </plurals>
-
-    <string name="msg_no_results">Sin resultados</string>
 
 </resources>
