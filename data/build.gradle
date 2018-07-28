@@ -11,6 +11,4 @@ android {
 
 dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
-
-    testImplementation 'com.github.gmazzo:okhttp-mock:1.0.4'
 }

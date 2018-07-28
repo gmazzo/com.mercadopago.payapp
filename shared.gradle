@@ -26,8 +26,13 @@ androidExtensions {
     experimental = true
 }
 
+configurations {
+    testShared
+}
+
 dependencies {
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$daggerVersion"
 
     implementation 'androidx.core:core-ktx:0.3'
     implementation "com.google.dagger:dagger:$daggerVersion"
@@ -35,10 +40,14 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.mockito:mockito-core:2.19.1'
+    testShared 'junit:junit:4.12'
+    testShared 'org.mockito:mockito-core:2.19.1'
+    testShared 'com.github.gmazzo:okhttp-mock:1.0.4'
+
+    testImplementation configurations.testShared
     testImplementation 'org.robolectric:robolectric:3.8'
 
+    androidTestImplementation configurations.testShared
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

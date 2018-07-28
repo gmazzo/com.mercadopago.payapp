@@ -10,14 +10,13 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Singleton
 
 @Module(includes = [PaymentsDataSourceModule::class])
-class DataModule {
+internal class DataModule {
 
     @Provides
-    @Singleton
-    fun provideOkHttpClient(context: Context) = OkHttpClient.Builder()
+    fun provideOkHttpClient(context: Context, clientBuilder: OkHttpClient.Builder) = clientBuilder
+            .addInterceptor(PublicKeyInterceptor(context.getString(R.string.meli_api_public_key)))
             .apply {
                 if (BuildConfig.DEBUG) {
                     addInterceptor(HttpLoggingInterceptor().apply {
@@ -25,11 +24,9 @@ class DataModule {
                     })
                 }
             }
-            .addInterceptor(PublicKeyInterceptor(context.getString(R.string.meli_api_public_key)))
             .build()!!
 
     @Provides
-    @Singleton
     fun provideRetrofit(client: OkHttpClient) = Retrofit.Builder()
             .client(client)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))

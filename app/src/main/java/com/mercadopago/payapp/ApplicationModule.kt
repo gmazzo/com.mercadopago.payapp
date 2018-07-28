@@ -1,13 +1,12 @@
 package com.mercadopago.payapp
 
 import android.content.Context
-import com.mercadopago.payapp.data.DataModule
 import com.mercadopago.payapp.payments.PaymentModule
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
-@Module(includes = [DataModule::class])
+@Module
 internal interface ApplicationModule {
 
     @Binds

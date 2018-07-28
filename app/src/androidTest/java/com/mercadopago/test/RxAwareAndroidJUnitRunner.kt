@@ -4,7 +4,7 @@ import android.support.test.runner.AndroidJUnitRunner
 import com.squareup.rx2.idler.Rx2Idler
 import io.reactivex.plugins.RxJavaPlugins
 
-class RxAwareAndroidJUnitRunner : AndroidJUnitRunner() {
+open class RxAwareAndroidJUnitRunner : AndroidJUnitRunner() {
 
     override fun onStart() {
         RxJavaPlugins.setInitComputationSchedulerHandler(Rx2Idler.create("rx-computation-idler"))
