@@ -9,7 +9,6 @@ import com.mercadopago.payapp.mockRetrofit
 import com.mercadopago.payapp.toUri
 import okhttp3.mock.ClasspathResources.resource
 import okhttp3.mock.MockInterceptor
-import okhttp3.mock.Rule
 import org.hamcrest.Matchers.equalTo
 import org.junit.Assert.assertThat
 import org.junit.Before
@@ -28,9 +27,9 @@ class PaymentsDataSourceTest : BaseTest() {
 
     @Test
     fun testListMethods() {
-        interceptor.addRule(Rule.Builder().get()
+        interceptor.addRule().get()
                 .path("/payment_methods")
-                .respond(resource("payment_methods.json")))
+                .respond(resource("payment_methods.json"))
 
         val result = dataSource.listMethods().blockingGet()
 
@@ -45,10 +44,10 @@ class PaymentsDataSourceTest : BaseTest() {
 
     @Test
     fun testCardIssuers() {
-        interceptor.addRule(Rule.Builder().get()
+        interceptor.addRule().get()
                 .path("/payment_methods/card_issuers")
                 .param("payment_method_id", TEST_METHOD.id)
-                .respond(resource("card_issuers.json")))
+                .respond(resource("card_issuers.json"))
 
         val result = dataSource.cardIssuers(TEST_METHOD).blockingGet()
 
@@ -64,12 +63,12 @@ class PaymentsDataSourceTest : BaseTest() {
     fun testInstallments() {
         val amount = 101.2f
 
-        interceptor.addRule(Rule.Builder().get()
+        interceptor.addRule().get()
                 .path("/payment_methods/installments")
                 .param("amount", amount.toString())
                 .param("payment_method_id", TEST_METHOD.id)
                 .param("issuer.id", TEST_BANK.id.toString())
-                .respond(resource("installments.json")))
+                .respond(resource("installments.json"))
 
         val result = dataSource.installments(amount, TEST_METHOD, TEST_BANK).blockingGet()
 

@@ -24,6 +24,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import com.mercadopago.payapp.test.R as testR
 
@@ -105,7 +106,8 @@ class PaymentFlowInstrumentedTest {
         onView(withId(R.id.amountValue))
                 .perform(typeText(amount?.toString() ?: ""))
 
-        onView(withId(R.id.next)).perform(click()) // click on "Continue" button
+        onView(withId(R.id.next))
+                .perform(click()) // click on "Continue" button
     }
 
     private fun selectRecyclerItem(position: Int) {
@@ -114,10 +116,10 @@ class PaymentFlowInstrumentedTest {
     }
 
     private fun mockRequest(url: String, @RawRes responseId: Int) {
-        mockInterceptor.addRule(okhttp3.mock.Rule.Builder()
-                .get()
-                .url(url)
-                .respond(rawRes(InstrumentationRegistry.getContext(), responseId)))
+        mockInterceptor.addRule()
+                .get(url)
+                .delay(TimeUnit.SECONDS.toMillis(1))
+                .respond(rawRes(InstrumentationRegistry.getContext(), responseId))
     }
 
 }

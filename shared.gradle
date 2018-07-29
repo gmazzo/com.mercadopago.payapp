@@ -42,7 +42,7 @@ dependencies {
 
     testShared 'junit:junit:4.12'
     testShared 'org.mockito:mockito-core:2.19.1'
-    testShared 'com.github.gmazzo:okhttp-mock:1.0.4'
+    testShared 'com.github.gmazzo:okhttp-mock:1.1.0'
 
     testImplementation configurations.testShared
     testImplementation 'org.robolectric:robolectric:3.8'
