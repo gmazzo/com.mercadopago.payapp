@@ -12,10 +12,14 @@ import javax.inject.Singleton
         modules = [AndroidSupportInjectionModule::class, ApplicationModule::class])
 internal interface ApplicationInjector : AndroidInjector<Application> {
 
+    fun startNewFlow(): FlowComponent.Builder
+
     @Component.Builder
     abstract class Builder : AndroidInjector.Builder<Application>() {
 
         abstract fun dataComponent(dataComponent: DataComponent): Builder
+
+        abstract override fun build(): ApplicationInjector
 
     }
 
