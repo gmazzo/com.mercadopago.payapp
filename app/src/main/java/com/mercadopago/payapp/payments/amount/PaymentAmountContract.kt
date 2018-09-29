@@ -1,7 +1,5 @@
 package com.mercadopago.payapp.payments.amount
 
-import com.mercadopago.payapp.payments.models.Payment
-
 internal interface PaymentAmountContract {
 
     interface Presenter {
@@ -16,7 +14,7 @@ internal interface PaymentAmountContract {
 
         fun showAmountError()
 
-        fun showNextScreen(payment: Payment)
+        fun showNextScreen()
 
     }
 

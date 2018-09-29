@@ -1,6 +1,7 @@
 package com.mercadopago.payapp
 
 import android.app.Activity
+import com.mercadopago.payapp.payments.models.Payment
 import dagger.BindsInstance
 import dagger.Subcomponent
 import dagger.android.DispatchingAndroidInjector
@@ -15,12 +16,12 @@ interface FlowComponent {
     abstract class Builder {
 
         @BindsInstance
-        abstract fun bindStorage(storage: FlowStorage): Builder
+        abstract fun bindModel(model: Payment): Builder
 
         abstract fun build(): FlowComponent
 
-        fun create(storage: FlowStorage = FlowStorage()): FlowComponent {
-            bindStorage(storage)
+        fun create(model: Payment = Payment()): FlowComponent {
+            bindModel(model)
             return build()
         }
 

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.mercadopago.payapp.R
 import com.mercadopago.payapp.payments.methods.PaymentMethodFragment
-import com.mercadopago.payapp.payments.models.Payment
 import com.mercadopago.payapp.replaceWith
 import com.mercadopago.payapp.showError
 import dagger.android.support.DaggerFragment
@@ -42,8 +41,8 @@ class PaymentAmountFragment : DaggerFragment(), PaymentAmountContract.View {
         amount.showError = getText(R.string.err_payment_amount)
     }
 
-    override fun showNextScreen(payment: Payment) {
-        replaceWith(PaymentMethodFragment.create(payment))
+    override fun showNextScreen() {
+        replaceWith(PaymentMethodFragment())
     }
 
 }

@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import com.mercadopago.payapp.R
-import com.mercadopago.payapp.payments.ARG_PAYMENT
 import com.mercadopago.payapp.payments.PaymentHeaderFragment
 import com.mercadopago.payapp.payments.models.Payment
 import kotlinx.android.synthetic.main.fragment_payment_resume.*
@@ -36,14 +34,6 @@ class PaymentResumeFragment : PaymentHeaderFragment(), PaymentResumeContract.Vie
 
     override fun showPayment(payment: Payment) {
         updatePayment(payment)
-    }
-
-    companion object {
-
-        fun create(payment: Payment) = PaymentResumeFragment().apply {
-            arguments = bundleOf(ARG_PAYMENT to payment)
-        }
-
     }
 
 }

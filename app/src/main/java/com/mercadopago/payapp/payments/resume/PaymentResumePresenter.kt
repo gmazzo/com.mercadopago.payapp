@@ -11,6 +11,7 @@ internal class PaymentResumePresenter @Inject constructor(
 
     override fun onStart() {
         header.updatePayment(null)
+
         view.showPayment(payment)
     }
 

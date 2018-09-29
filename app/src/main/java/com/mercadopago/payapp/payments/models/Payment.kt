@@ -7,7 +7,7 @@ import com.mercadopago.payapp.data.models.PaymentMethod
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Payment(val amount: Float? = null,
-                   val method: PaymentMethod? = null,
-                   val bank: PaymentBank? = null,
-                   val installments: PaymentInstallments? = null) : Parcelable
+data class Payment(var amount: Float? = null,
+                   var method: PaymentMethod? = null,
+                   var bank: PaymentBank? = null,
+                   var installments: PaymentInstallments? = null) : Parcelable

@@ -6,7 +6,8 @@ import javax.inject.Inject
 
 internal class PaymentAmountPresenter @Inject constructor(
         private val view: PaymentAmountContract.View,
-        private val header: PaymentHeader) : PaymentAmountContract.Presenter {
+        private val header: PaymentHeader,
+        private val payment: Payment) : PaymentAmountContract.Presenter {
 
     override fun onStart() {
         header.updatePayment(null)
@@ -14,7 +15,9 @@ internal class PaymentAmountPresenter @Inject constructor(
 
     override fun onAmountEntered(amount: Float?) {
         if (amount?.takeIf { it > 0 } != null) {
-            view.showNextScreen(Payment(amount = amount))
+            payment.amount = amount
+
+            view.showNextScreen()
 
         } else {
             view.showAmountError()

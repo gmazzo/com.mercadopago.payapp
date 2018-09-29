@@ -30,7 +30,9 @@ internal class PaymentMethodPresenter @Inject constructor(
     }
 
     override fun onMethodSelected(method: PaymentMethod) {
-        view.showNextScreen(payment.copy(method = method))
+        payment.method = method
+
+        view.showNextScreen()
     }
 
 }

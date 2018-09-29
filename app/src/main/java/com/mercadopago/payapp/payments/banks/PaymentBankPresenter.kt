@@ -30,7 +30,9 @@ internal class PaymentBankPresenter @Inject constructor(
     }
 
     override fun onBankSelected(bank: PaymentBank) {
-        view.showNextScreen(payment.copy(bank = bank))
+        payment.bank = bank
+
+        view.showNextScreen()
     }
 
 }

@@ -5,11 +5,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import com.mercadopago.payapp.R
 import com.mercadopago.payapp.data.models.PaymentInstallments
-import com.mercadopago.payapp.payments.ARG_PAYMENT
-import com.mercadopago.payapp.payments.models.Payment
 import com.mercadopago.payapp.payments.resume.PaymentResumeFragment
 import com.mercadopago.payapp.replaceWith
 import com.mercadopago.payapp.toast
@@ -53,16 +50,8 @@ class PaymentInstallmentsFragment : DaggerFragment(), PaymentInstallmentsContrac
         error.toast(context)
     }
 
-    override fun showNextScreen(payment: Payment) {
-        replaceWith(PaymentResumeFragment.create(payment))
-    }
-
-    companion object {
-
-        fun create(payment: Payment) = PaymentInstallmentsFragment().apply {
-            arguments = bundleOf(ARG_PAYMENT to payment)
-        }
-
+    override fun showNextScreen() {
+        replaceWith(PaymentResumeFragment())
     }
 
 }

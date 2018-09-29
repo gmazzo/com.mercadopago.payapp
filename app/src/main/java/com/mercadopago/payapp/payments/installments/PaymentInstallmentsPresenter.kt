@@ -30,7 +30,9 @@ internal class PaymentInstallmentsPresenter @Inject constructor(
     }
 
     override fun onInstallmentsSelected(installments: PaymentInstallments) {
-        view.showNextScreen(payment.copy(installments = installments))
+        payment.installments = installments
+
+        view.showNextScreen()
     }
 
 }

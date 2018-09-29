@@ -1,7 +1,6 @@
 package com.mercadopago.payapp.payments.methods
 
 import com.mercadopago.payapp.data.models.PaymentMethod
-import com.mercadopago.payapp.payments.models.Payment
 
 internal interface PaymentMethodContract {
 
@@ -19,7 +18,7 @@ internal interface PaymentMethodContract {
 
         fun showMethods(methods: List<PaymentMethod>)
 
-        fun showNextScreen(payment: Payment)
+        fun showNextScreen()
 
         fun showError(error: Throwable)
 

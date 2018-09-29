@@ -1,7 +1,6 @@
 package com.mercadopago.payapp.payments.banks
 
 import com.mercadopago.payapp.data.models.PaymentBank
-import com.mercadopago.payapp.payments.models.Payment
 
 internal interface PaymentBankContract {
 
@@ -19,7 +18,7 @@ internal interface PaymentBankContract {
 
         fun showBanks(banks: List<PaymentBank>)
 
-        fun showNextScreen(payment: Payment)
+        fun showNextScreen()
 
         fun showError(error: Throwable)
 

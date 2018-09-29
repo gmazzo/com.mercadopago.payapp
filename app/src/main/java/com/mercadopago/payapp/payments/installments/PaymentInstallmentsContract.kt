@@ -1,7 +1,6 @@
 package com.mercadopago.payapp.payments.installments
 
 import com.mercadopago.payapp.data.models.PaymentInstallments
-import com.mercadopago.payapp.payments.models.Payment
 
 internal interface PaymentInstallmentsContract {
 
@@ -19,7 +18,7 @@ internal interface PaymentInstallmentsContract {
 
         fun showInstallments(installments: List<PaymentInstallments>)
 
-        fun showNextScreen(payment: Payment)
+        fun showNextScreen()
 
         fun showError(error: Throwable)
 
