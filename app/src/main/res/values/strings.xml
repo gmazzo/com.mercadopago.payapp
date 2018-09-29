@@ -3,6 +3,7 @@
 
     <string name="action_continue">Continuar</string>
     <string name="action_pay">Pagar</string>
+    <string name="action_reset">Reiniciar</string>
     <string name="msg_paid">Pagado!</string>
     <string name="msg_no_results">Sin resultados</string>
 

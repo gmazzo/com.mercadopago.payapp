@@ -17,7 +17,7 @@ open class Application : DaggerApplication() {
                 .create(this)!! as ApplicationInjector
     }
 
-    private var flowComponent: FlowComponent? = null
+    var flowComponent: FlowComponent? = null
         get() {
             if (field == null) {
                 field = injector.startNewFlow().create()
